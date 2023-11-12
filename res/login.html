@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Christmas Login</title>
+    <link rel="stylesheet" type="text/css" href="res/css/login.css">
+</head>
+<body>
+    <div class="login-form">
+        <h2>Welcome</h2>
+        <div id="error" style="display: none;color:red; margin-bottom: 20px;"></div>
+        <form id="loginForm">
+            <input type="text" id="idno" name="idno" placeholder="Username" required>
+            <input type="password" id="password" name="password" placeholder="Password" required>
+            <input type="submit" value="Log in">
+        </form>
+        <script>
+            document.getElementById('loginForm').addEventListener('submit', function(event) {
+                event.preventDefault();
+
+                const username = document.getElementById('idno').value;
+                const password = document.getElementById('password').value;
+
+                fetch('/auth', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ idno: username, password: password }),
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        if (response.status === 401) {
+                            // alert('Incorrect Username and/or Password!');
+                                var errorDiv = document.getElementById('error');
+                                errorDiv.style.textco
+                                errorDiv.style.display = 'block';
+                                errorDiv.textContent = 'Incorrect username or password. Please try again.';
+                        } else if (response.status === 400) {
+                            alert('Please enter Username and Password!');
+                        } else if (response.status === 404){
+                            alert('You are already logged in to another device.');
+                        }
+                    } else {
+                        window.location.href = '/';
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+            });
+            </script>
+    </div>
+</body>
+</html>

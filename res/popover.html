@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+         body {
+            background-color: darkgreen;
+        }
+        .pyramid-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%; /* This makes the container take up the full width of the viewport */
+            height: 100vh; /* This makes the container take up the full height of the viewport */
+        }
+        .circle {
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            background-color: #b8063b;
+            font-family: montserrat;
+            font-style: bold;
+            border: 2px solid white;
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 40px;
+            color: #fff;
+            transition: transform 0.3s ease-in-out; /* This line adds the animation */
+        }
+        .circle:hover {
+            transform: scale(1.2); /* This line scales up the circle when it's hovered over */
+        }
+        #pyramid {
+            position: relative; /* Add this line */
+            width: 600px; /* Adjust as needed */
+            height: 600px; /* Adjust as needed */
+            margin: auto; /* Centers the pyramid horizontally */
+        }
+        .popover-title {
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center; color: black; font-family: montserrat;">POKE-A-TREE, WIN A PRIZE!</h1>
+    <div class="pyramid-container">
+        <div id="pyramid"></div>
+    </div>
+
+    <script>
+        var pyramid = document.getElementById('pyramid');
+        var size = 8; // The size of the pyramid
+        var count = 1; // Start counting from 1
+
+        for (var i = 0; i < size; i++) {
+            for (var j = 0; j <= i; j++) {
+                var circle = document.createElement('div');
+                circle.id = 'circle-' + count;
+                circle.className = 'circle';
+                circle.style.top = (i * 70) + 'px'; // Position circles vertically
+                circle.style.left = ((size - i - 1) * 40 + j * 80) + 'px'; // Position circles horizontally
+                
+                // Add Bootstrap popover
+                circle.setAttribute('title', 'CLAIMED BY');
+                circle.setAttribute('data-toggle', 'popover');
+                //circle.setAttribute('data-content', 'This is circle number ' + count);
+                //circle.setAttribute('data-trigger', 'hover');
+                //circle.setAttribute('data-placement', 'top');
+				
+                circle.textContent = count++; // Set the number inside the circle
+                pyramid.appendChild(circle);
+            }
+        }
+
+        // Initialize all popovers
+        $(document).ready(function(){
+           $('[data-toggle="popover"]').popover({
+              placement : 'top',
+              trigger : 'hover',
+              html : true,
+              content : '<p>Name: <b>HAROLD ERICK M. JAMORA</b><br>Prize: <b>House and Lot</b></p><br><img src="https://tinyurl.com/IMGnodejs" width="100%">'
+          }); 
+        });
+    </script>
+</body>
+</html>

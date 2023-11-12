@@ -1,0 +1,49 @@
+body {
+    background: url('/res/img/xmasbg.jpg') no-repeat center center fixed;
+    background-size: cover;
+    font-family: Arial, sans-serif;
+}
+
+.login-form {
+    width: 300px;
+    padding: 30px;
+    margin: 100px auto;
+    background: #f4f7f8;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.13);
+}
+
+.login-form h2 {
+    text-align: center;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.login-form input[type="text"], .login-form input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    background: #e8eeef;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.login-form input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background: #34ad00;
+    color: white;
+    border: none;
+    font-size: 16px;
+    font-weight: 300;
+    cursor: pointer;
+    border-radius: 2px;
+    text-transform: uppercase;
+}
+
+.login-form input[type="submit"]:hover {
+    transition: background-color 0.5s ease;
+    background-color: #5cb85c;
+}

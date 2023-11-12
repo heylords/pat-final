@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Module Navigation</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <style>
+        .module {
+            display: none;
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            padding-top: 50vh;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+        #module1 { background-color: red; }
+        #module2 { background-color: orange; }
+        #module3 { background-color: yellow; }
+        #module4 { background-color: green; }
+        #module5 { background-color: blue; }
+        #nextButton, #barButton {
+            position: fixed;
+            bottom: 10px;
+        }
+        #nextButton {
+            right: 50%;
+            transform: translateX(50%);
+        }
+        #barButton {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .dropdown-menu {
+            bottom: 100%;
+            transform: translateY(100%);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="module1" class="module">Module 1 content...</div>
+        <div id="module2" class="module">Module 2 content...</div>
+        <div id="module3" class="module">Module 3 content...</div>
+        <div id="module4" class="module">Module 4 content...</div>
+        <div id="module5" class="module">Module 5 content...</div>
+        <button id="nextButton" class="btn btn-primary">Next</button>
+        <div class="dropdown" id="barButton">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Modules
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#" id="item1">Module 1</a>
+                <a class="dropdown-item" href="#" id="item2">Module 2</a>
+                <a class="dropdown-item" href="#" id="item3">Module 3</a>
+                <a class="dropdown-item" href="#" id="item4">Module 4</a>
+                <a class="dropdown-item" href="#" id="item5">Module 5</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            var currentModule = 1;
+            $("#module" + currentModule).show();
+            $("#item" + currentModule).addClass("active");
+            $("#nextButton").click(function() {
+                if(currentModule < 5) {
+                    $("#module" + currentModule).hide();
+                    $("#item" + currentModule).removeClass("active");
+                    currentModule++;
+                    $("#module" + currentModule).show();
+                    $("#item" + currentModule).addClass("active");
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Module Navigation</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <style>
+        .module {
+            display: none;
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            padding-top: 50vh;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+        #module1 { background-color: red; }
+        #module2 { background-color: orange; }
+        #module3 { background-color: yellow; }
+        #module4 { background-color: green; }
+        #module5 { background-color: blue; }
+        #nextButton, #barButton {
+            position: fixed;
+            bottom: 10px;
+        }
+        #nextButton {
+            right: 50%;
+            transform: translateX(50%);
+        }
+        #barButton {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .dropdown-menu {
+            bottom: 100%;
+            transform: translateY(100%);
+        }
+        .active {
+            background-color: #007bff;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="module1" class="module">Module 1 content...</div>
+        <div id="module2" class="module">Module 2 content...</div>
+        <div id="module3" class="module">Module 3 content...</div>
+        <div id="module4" class="module">Module 4 content...</div>
+        <div id="module5" class="module">Module 5 content...</div>
+        <button id="nextButton" class="btn btn-primary">Next</button>
+        <div class="dropdown" id="barButton">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Modules
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#" id="item1">Module 1</a>
+                <a class="dropdown-item" href="#" id="item2">Module 2</a>
+                <a class="dropdown-item" href="#" id="item3">Module 3</a>
+                <a class="dropdown-item" href="#" id="item4">Module 4</a>
+                <a class="dropdown-item" href="#" id="item5">Module 5</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            var currentModule = 1;
+            $("#module" + currentModule).show();
+            $("#item" + currentModule).addClass("active");
+            $("#nextButton").click(function() {
+                if(currentModule < 5) {
+                    $("#module" + currentModule).hide();
+                    $("#item" + currentModule).removeClass("active");
+                    currentModule++;
+                    $("#module" + currentModule).show();
+                    $("#item" + currentModule).addClass("active");
+                }
+            });
+        });
+    </script>
+</body>
+</html>

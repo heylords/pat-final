@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        #user-box {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            grid-template-rows: repeat(10, 1fr);
+            gap: 3px;
+            width: 100%;
+            height: 100vh;
+            border: 1px solid #ccc;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            overflow: auto;
+            position: relative;
+        }
+        .user {
+            display: none;
+            background-color: #007BFF;
+            color: #fff;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            animation: popout 0.5s forwards;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+            text-align: center;
+        }
+        @keyframes popout {
+            0% { transform: scale(0); }
+            100% { transform: scale(1); }
+        }
+        #new-user {
+            margin-top: 10px;
+        }
+        #new-user input, #new-user button {
+            padding: 10px;
+            font-size: 16px;
+        }
+        #new-user button {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Active Users</h1>
+    <div id="user-box">
+        <!-- Active users will be added here -->
+    </div>
+    <div id="new-user">
+        <input type="text" id="username" placeholder="Enter username">
+        <button onclick="addUser()">Add User</button>
+    </div>
+    <script>
+        function addUser() {
+            var username = document.getElementById('username').value;
+            if (username) {
+                var userBox = document.getElementById('user-box');
+                var div = document.createElement('div');
+                div.className = 'user';
+                div.textContent = username;
+                userBox.prepend(div);
+                setTimeout(function() {
+                    div.style.display = 'block';
+                }, 10);
+                document.getElementById('username').value = '';
+                resizeFont(div);
+            }
+        }
+
+        function resizeFont(element) {
+            var fontSize = 100;
+            var textLength = element.textContent.length;
+
+            if (textLength > 10) {
+                fontSize -= (textLength - 10) * 5;
+            }
+
+            element.style.fontSize = fontSize + '%';
+        }
+    </script>
+</body>
+</html>

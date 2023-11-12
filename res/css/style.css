@@ -1,0 +1,59 @@
+body {
+    background-image: url('/res/img/xmasbg.jpg'); /* Replace with your image's filename */
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: Montserrat, sans-serif;
+}
+.pyramid-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%; /* This makes the container take up the full width of the viewport */
+    height: 100vh; /* This makes the container take up the full height of the viewport */
+    background-image: url('/res/img/xmastree.png'); /* Replace with your image's filename */
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+.circle {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    background-color: #b8063b;
+    font-family: montserrat;
+    font-style: bold;
+    border: 2px solid white;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    color: #fff;
+    transition: transform 0.3s ease-in-out; /* This line adds the animation */
+}
+.circle:hover {
+    transform: scale(2); /* This line scales up the circle when it's hovered over */
+    z-index: 999;
+}
+#pyramid {
+    position: relative; /* Add this line */
+    width: 600px; /* Adjust as needed */
+    height: 600px; /* Adjust as needed */
+    margin: auto; /* Centers the pyramid horizontally */
+}
+.popover-title {
+    text-align: center;
+    font-weight: bold;
+}
+#sidebar {
+    width: 25%;
+    height: 100%;
+    background-color: #f8f9fa;
+    overflow: auto;
+    font-family: montserrat;
+    font-weight: bold;
+    float: left;
+  }
+#active{
+    padding: 10px;
+}
